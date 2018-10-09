@@ -1,4 +1,4 @@
-This respository holds data and code of following paper:
+This respository holds all data and code of the following paper:
 
 Senf, C., Pflugmacher, D., Zhiqiang, Y., Sebald, S., Knorrn, J., Neumann, M., Hostert, P., and Seidl, R. (in review) Canopy mortality has doubled across Europe’s temperate forests in the last three decades. Nature Communications.
 
