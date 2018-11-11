@@ -83,6 +83,6 @@ Columns:
 - image_julday: the julian date of the vertex
 - dominant_landuse: The land use of each vertex (i.e., other or forest)
 - dominant_landcover: The land cover of each vertex (i.e., treed, non-treed)
-- change_process: Change process desribing the change segment (i.e., stable, harvest, wind, decline, growth/recovery)
+- change_process: Change process desribing the change segment (i.e., stable, harvest, wind, decline, growth/recovery) **NOTE:** The agent attribution is based on a best guess and is NOT reliable!
 - change_process_notes: notes taken during interpretation
 - interpreter: interpreter code

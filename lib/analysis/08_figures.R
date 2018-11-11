@@ -80,7 +80,7 @@ figure1b <- ggplot() +
   scale_y_continuous(limits = c(0, 0.02),
     labels = function(x) formatC(sprintf("%.2f", x * 100), digits = 3)) +
   scale_x_continuous(breaks = c(1990, 2000, 2010), limits = c(1984, 2016)) +
-  labs(x = "Year", y = bquote("Canopy mortality [%"*yr^-1*"]"), fill = NULL, col = NULL) +
+  labs(x = "Year", y = bquote("Canopy mortality (%"*yr^-1*")"), fill = NULL, col = NULL) +
   ggthemes::theme_few() +
   geom_text(data = plotdat$c, aes(x = x, y = y - 0.02, label = label), 
             size = 3, hjust = 0, parse = TRUE) +
@@ -99,7 +99,7 @@ figure1b <- ggplot() +
 
 figure1 <- figure1b + figure1a + plot_layout(ncol = 2, width = c(4.5, 7))
 
-ggsave("figure1.pdf", figure1, path = "paper/figures/", width = 7, height = 3.25)
+ggsave("figure1.pdf", figure1, path = "paper/figures/", width = 7.5, height = 3.4)
 
 #### Figure 2 ####
 
@@ -130,7 +130,7 @@ figure3 <- ggplot(timesync_trend) +
   scale_y_continuous(labels = function(x) formatC(sprintf("%.2f", x)), limits = c(-8, 9)) +
   scale_x_discrete() +
   labs(x = NULL, 
-       y = bquote("Fractional change in canopy mortality [% "*yr^-1*"]"),
+       y = bquote("Fractional change in canopy mortality (% "*yr^-1*")"),
        col = NULL, shape = NULL) +
   ggthemes::theme_few() +
   theme(strip.text.x = element_text(angle = 0, hjust = 0, size = 9),
@@ -235,7 +235,7 @@ figure4a <- ggplot(rates) +
   scale_y_continuous(#limits = c(0, 0.05),
     labels = function(x) formatC(sprintf("%.2f", x * 100), digits = 3), expand = c(0.0001, 0.0001)) +
   scale_x_continuous(breaks = c(1990, 2000, 2010), limits = c(1984, 2016), expand = c(0.0001, 0.0001)) +
-  labs(x = "Year", y = bquote("Rate [% "*yr^-1*"]"), fill = NULL, col = NULL) +
+  labs(x = "Year", y = bquote("Rate (% "*yr^-1*")"), fill = NULL, col = NULL) +
   ggthemes::theme_few() +
   facet_wrap(~measure, ncol = 1, scales = "free_y", strip.position = "right") +
   theme(strip.text = element_text(size = 7),
@@ -268,7 +268,7 @@ figure4b <- rates %>%
               col = "darkgrey", se = FALSE, size = 0.75) +
   scale_x_continuous(labels = function(x) formatC(sprintf("%.2f", x * 100))) +
   scale_y_continuous(labels = function(x) formatC(sprintf("%.2f", x * 100))) +
-  labs(x = bquote("Canopy mortality [% "*yr^-1*"]"), y = bquote("Rate [% "*yr^-1*"]")) +
+  labs(x = bquote("Canopy mortality (% "*yr^-1*")"), y = bquote("Rate (% "*yr^-1*")")) +
   ggthemes::theme_few() +
   theme(strip.text = element_text(size = 7),
         axis.text = element_text(size = 7),
@@ -277,10 +277,11 @@ figure4b <- rates %>%
   facet_wrap(~measure, scales = "free_y") +
   scale_color_manual(values = c("#66CCEE", "#228833", "#CCBB44", "#EE6677", "#AA3377"))
 
-figure4 <- figure4a + figure4b + 
-  plot_layout(ncol = 2, widths = c(0.4, 0.5))
+figure4 <- figure4a + labs(subtitle = "A)") +
+  figure4b + labs(subtitle = "B)") +
+  plot_layout(ncol = 2, widths = c(0.4, 0.5), tag_level = "new")
 
-ggsave("figure4.pdf", figure4, path = "paper/figures/", width = 6.5, height = 3.42)
+ggsave("figure4.pdf", figure4, path = "paper/figures/", width = 7.5, height = 4)
 
 
 

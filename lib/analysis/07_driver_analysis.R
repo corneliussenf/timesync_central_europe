@@ -238,10 +238,10 @@ plots <- pmap(list(a = plotdat %>%
                      split(.$index), 
                    b = pred %>% 
                      split(.$index),
-                   c = list(bquote("Growing stock [100 "*m^3*"/"*ha*"]"), 
-                            "Median age [years]", 
-                            "Temperature [°C]", 
-                            "Precipitation [100 mm]"),
+                   c = list(bquote("Growing stock (100 "*m^3*"/"*ha*")"), 
+                            "Median age (years)", 
+                            "Temperature (°C)", 
+                            "Precipitation (100 mm)"),
                    e = r2 %>% 
                      split(.$index),
                    f = evidence %>% 
@@ -290,7 +290,7 @@ legend <- tmp$grobs[[leg]]
 p <- grid.arrange(
   arrangeGrob(grobs = lapply(plots, function(p) p + theme(legend.position = "none")), 
               ncol = 2,
-              left = textGrob(bquote("Canopy mortality [% "*yr^-1*"]"), gp = gpar(fontsize = 9), rot = 90)),
+              left = textGrob(bquote("Canopy mortality (% "*yr^-1*")"), gp = gpar(fontsize = 9), rot = 90)),
   legend, 
   widths = c(6, 2)
 )
